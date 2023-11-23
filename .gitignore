@@ -1,0 +1,15 @@
+# Mac OS
+*.DS_Store
+*~
+*.sw[po]
+.*.sw[po]
+
+# SPM
+Package.resolved
+.swiftpm
+.build
+
+# Xcode
+xcuserdata/
+build
+
