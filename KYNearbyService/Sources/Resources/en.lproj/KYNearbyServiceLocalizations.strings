@@ -1,0 +1,59 @@
+/* 
+  KYNearbyServiceLocalizations.strings
+  KYNearbyService
+
+  Created by Kjuly on 19/11/2020.
+  Copyright © 2020 Kjuly. All rights reserved.
+*/
+
+// MARK: - Nearby Service (KYNearbyService)
+
+// Invitation
+"LS:Invitation" = "Invitation";
+"LS:%@ wants to connect." = "%@ wants to connect.";
+"LS:Decline" = "Decline";
+"LS:Block"   = "Block";
+"LS:Accept"  = "Accept";
+
+// Peer Connection Status
+"LS:Connection Status:Not Connected" = "Not Connected";
+"LS:Connection Status:Connecting" = "Connecting";
+"LS:Connection Status:Connected" = "Connected";
+"LS:Connection Status:Declined" = "Declined";
+"LS:Connection Status:Blocked" = "Blocked";
+
+// MARK: - Nearby Connection View (KYNearbyConnectionView)
+
+// Section: "Visible to Others as"
+"LS:VISIBLE TO OTHERS AS" = "VISIBLE TO OTHERS AS";
+"LS:VISIBLE TO OTHERS AS:Footnote" = "It is recommended to use a unique and identifiable name.";
+
+// Section: "Users Nearby"
+"LS:USERS NEARBY (CHOOSE 1 TO 7 INVITEES)" = "USERS NEARBY (CHOOSE 1 TO 7 INVITEES)";
+// - No User Found
+"LS:No User Found:Title" = "No User Found";
+"LS:No User Found:Message" = "There is no Aidem user nearby to share with.\nYou can choose other ways.";
+
+// Peer Action
+"LS:SEND" = "SEND";
+// - Options
+"LS:Send"       = "Send";
+"LS:Terminate"  = "Terminate";
+"LS:Connect"    = "Connect";
+"LS:Disconnect" = "Disconnect";
+"LS:Unblock"    = "Unblock";
+"LS:Cancel"     = "Cancel";
+
+// Peer Processing
+"LS:Sending..."   = "Sending...";
+"LS:Receiving..." = "Receiving...";
+
+// Disconnect All
+"LS:Disconnect All" = "Disconnect All";
+"LS:Disconnect All:Message" = "Would you like to disconnect all?";
+
+// Error
+"LS:Error Occurred" = "Error Occurred";
+"LS:Error Occurred:Ignore" = "Ignore";
+// - Faled to Send Resource
+"LS:Error:Faled to send resource." = "Faled to send resource.";

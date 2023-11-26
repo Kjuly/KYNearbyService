@@ -13,3 +13,6 @@ Package.resolved
 xcuserdata/
 build
 
+# Xcode Config
+KYNearbyServiceDemo/KYNearbyServiceDemo.xcconfig
+

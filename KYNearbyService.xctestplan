@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "854EE856-1C25-4706-B7DD-9167332E04FD",
+      "name" : "Test Scheme Action",
+      "options" : {
+        "environmentVariableEntries" : [
+          {
+            "key" : "PACKAGE_RESOURCE_BUNDLE_URL",
+            "value" : "$(BUILT_PRODUCTS_DIR)"
+          }
+        ],
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:KYNearbyService.xcodeproj",
+          "identifier" : "7FBACE1B2B0EFE8F001D167C",
+          "name" : "KYNearbyService"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:KYNearbyService.xcodeproj",
+          "identifier" : "7FBACE1B2B0EFE8F001D167C",
+          "name" : "KYNearbyService"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:KYNearbyService.xcodeproj",
+        "identifier" : "7FBACE252B0EFE90001D167C",
+        "name" : "KYNearbyServiceTests"
+      }
+    }
+  ],
+  "version" : 1
+}

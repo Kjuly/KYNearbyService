@@ -1,0 +1,59 @@
+/* 
+  KYNearbyServiceLocalizations.strings
+  KYNearbyService
+
+  Created by Kjuly on 19/11/2020.
+  Copyright © 2020 Kjuly. All rights reserved.
+*/
+
+// MARK: - Nearby Service (KYNearbyService)
+
+// Invitation
+"LS:Invitation" = "邀请";
+"LS:%@ wants to connect." = "%@ 请求连接。";
+"LS:Decline" = "拒绝";
+"LS:Block"   = "屏蔽";
+"LS:Accept"  = "接受";
+
+// Peer Connection Status
+"LS:Connection Status:Not Connected" = "尚未连接";
+"LS:Connection Status:Connecting" = "连接中";
+"LS:Connection Status:Connected" = "已连接";
+"LS:Connection Status:Declined" = "已拒绝";
+"LS:Connection Status:Blocked" = "已屏蔽";
+
+// MARK: - Nearby Connection View (KYNearbyConnectionView)
+
+// Section: "Visible to Others as"
+"LS:VISIBLE TO OTHERS AS" = "对他人可见为";
+"LS:VISIBLE TO OTHERS AS:Footnote" = "建议使用唯一且可识别的名称。";
+
+// Section: "Users Nearby"
+"LS:USERS NEARBY (CHOOSE 1 TO 7 INVITEES)" = "附近的用户（可选择1到7个）";
+// - No User Found
+"LS:No User Found:Title" = "未找到任何用户";
+"LS:No User Found:Message" = "附近尚未找到 Aidem 用户。\n你可以选择其它方式进行分享。";
+
+// Peer Action
+"LS:SEND" = "发送";
+// - Options
+"LS:Send"       = "发送";
+"LS:Terminate"  = "终止";
+"LS:Connect"    = "连接";
+"LS:Disconnect" = "断开连接";
+"LS:Unblock"    = "解除屏蔽";
+"LS:Cancel"     = "取消";
+
+// Peer Processing
+"LS:Sending..."   = "发送中...";
+"LS:Receiving..." = "接收中...";
+
+// Disconnect All
+"LS:Disconnect All" = "断开所有连接";
+"LS:Disconnect All:Message" = "确认断开所有的连接？";
+
+// Error
+"LS:Error Occurred" = "遇到错误";
+"LS:Error Occurred:Ignore" = "忽略";
+// - Faled to Send Resource
+"LS:Error:Faled to send resource." = "发送失败。";
