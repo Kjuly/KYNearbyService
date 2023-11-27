@@ -39,7 +39,7 @@ struct KYNearbyServiceDemoApp: App {
       tempFolderURL: KYNearbyServiceDefaultFolderURL.temp,
       viewInterface: nil))
 #if DEBUG
-//    KYNearbyService.shared.debug_populateMockPeers()
+    KYNearbyService.shared.debug_populateMockPeers(for: .none)
 #endif
   }
 
