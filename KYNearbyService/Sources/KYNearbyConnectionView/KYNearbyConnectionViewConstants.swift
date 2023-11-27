@@ -21,13 +21,19 @@ enum KYNearbyConnectionViewDimension {
   }
 
   public enum ViewCornerRadius {
-    // public static let small: CGFloat =  2
-    public static let regular: CGFloat =  5
-    // public static let large: CGFloat = 10
+    // static let small: CGFloat = 2
+    static let regular: CGFloat = 5
+    // static let large: CGFloat = 10
   }
 
   public enum IconButtonSizeLength {
-    public static let regular: CGFloat = 44
-    public static let small: CGFloat = 32
+    static let regular: CGFloat = 44
+    static let small: CGFloat = 32
+  }
+
+  public enum PeerCell {
+    public static let horizontalSpacing: CGFloat = 10
+    public static let peerStatusIndicatorSizeLength: CGFloat = 20
+    public static let secondaryContentLeadingPadding: CGFloat = peerStatusIndicatorSizeLength + horizontalSpacing
   }
 }

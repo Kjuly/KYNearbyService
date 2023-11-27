@@ -87,7 +87,7 @@ struct KYNearbyConnectionPeerCell: View {
       // Data Processing Bar
       ProgressView(value: self.item.progress?.fractionCompleted ?? 0)
         .progressViewStyle(.linear)
-        .padding(.leading, KYNearbyConnectionViewDimension.IconButtonSizeLength.small)
+        .padding(.leading, KYNearbyConnectionViewDimension.PeerCell.secondaryContentLeadingPadding)
 
       // Data Processing Details (For Compact Device Case)
       if _isCompactWidth() {
@@ -105,7 +105,7 @@ struct KYNearbyConnectionPeerCell: View {
 
   @ViewBuilder
   private func _mainContentRow() -> some View {
-    HStack(alignment: .center) {
+    HStack(alignment: .center, spacing: KYNearbyConnectionViewDimension.PeerCell.horizontalSpacing) {
       // Peer Status & Name
       _peerStatusAndNameLabel()
 
@@ -143,6 +143,7 @@ struct KYNearbyConnectionPeerCell: View {
   private func _peerStatusAndNameLabel() -> some View {
     Image(systemName: KYNearbyConnectionViewIconName.peerStatusIndicator)
       .foregroundColor(_statusColor())
+      .frame(width: KYNearbyConnectionViewDimension.PeerCell.peerStatusIndicatorSizeLength)
     Text(self.item.displayName)
       .font(self.labelFont)
       .foregroundColor(self.defaultContentColor)
@@ -208,7 +209,7 @@ struct KYNearbyConnectionPeerCell: View {
           .foregroundColor(self.secondaryContentColor)
           .frame(maxWidth: .infinity, alignment: .trailing)
       }
-      .padding(.leading, KYNearbyConnectionViewDimension.IconButtonSizeLength.small)
+      .padding(.leading, KYNearbyConnectionViewDimension.PeerCell.secondaryContentLeadingPadding)
     } else {
       VStack(alignment: .trailing) {
         Text(self.item.processTitle ?? "")
@@ -228,7 +229,7 @@ struct KYNearbyConnectionPeerCell: View {
       .foregroundColor(self.redStatusColor)
       .lineLimit(3)
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(.leading, KYNearbyConnectionViewDimension.IconButtonSizeLength.small)
+      .padding(.leading, KYNearbyConnectionViewDimension.PeerCell.secondaryContentLeadingPadding)
   }
 
   // MARK: - Internal
