@@ -16,6 +16,11 @@ import UIKit
 
 public class KYNearbyServiceConfiguration {
 
+#if DEBUG
+  /// A service type for the demo project (refer to /KYNearbyServiceDemo).
+  public static let debug_serviceTypeForDemo: String = "nearby-demo"
+#endif
+
   /// Equeal to info.plist's NSBonjourServices, but w/o the transport protocol.
   public var serviceType: String
 

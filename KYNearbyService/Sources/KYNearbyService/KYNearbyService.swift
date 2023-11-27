@@ -70,7 +70,11 @@ public class KYNearbyService: NSObject {
       let errorMessage = "Service Type is required before accessing KYNearbyService.shared. Please use KYNearbyService.setup(with:) to setup first."
       KYLog(.critical, errorMessage)
 #if DEBUG
-      fatalError(errorMessage)
+      if NSClassFromString("XCTest") == nil && ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == nil {
+        fatalError(errorMessage)
+      } else {
+        KYNearbyService.config = KYNearbyServiceConfiguration(serviceType: KYNearbyServiceConfiguration.debug_serviceTypeForDemo)
+      }
 #endif
     }
     super.init()

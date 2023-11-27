@@ -34,7 +34,7 @@ struct KYNearbyServiceDemoApp: App {
 
     // Setup KYNearbyService
     KYNearbyService.setup(with: KYNearbyServiceConfiguration(
-      serviceType: "nearby-demo",
+      serviceType: KYNearbyServiceConfiguration.debug_serviceTypeForDemo,
       archivesFolderURL: KYNearbyServiceDemoApp.archivesFolderURL,
       tempFolderURL: KYNearbyServiceDefaultFolderURL.temp,
       viewInterface: nil))
