@@ -23,14 +23,14 @@ extension KYNearbyService {
 
   /// Populate mock peers for preview.
   @MainActor
-  public func debug_populateMockPeers(for scenario: DebugPreviewScenario) {
+  public func debug_populateMockPeers(for scenario: DebugPreviewScenario, connectedPeerName: String? = nil) {
     switch scenario {
     case .allPeerStatuses:
       self.peers = KYNearbyPeerModel.debug_makePeersForAllCases()
     case .sendingResource:
-      self.peers = [KYNearbyPeerModel.debug_makeProcessingPeer(with: "Macbook Pro", forReceiving: false)]
+      self.peers = [KYNearbyPeerModel.debug_makeProcessingPeer(with: connectedPeerName ?? "A Nearby User", forReceiving: false)]
     case .receivingResource:
-      self.peers = [KYNearbyPeerModel.debug_makeProcessingPeer(with: "iPhone 15 Pro Max", forReceiving: true)]
+      self.peers = [KYNearbyPeerModel.debug_makeProcessingPeer(with: connectedPeerName ?? "A Nearby User", forReceiving: true)]
     default:
       break
     }
