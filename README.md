@@ -10,6 +10,15 @@ A service for nearby discovery and communication.
 <img src="https://raw.githubusercontent.com/Kjuly/preview/main/KYNearbyService/Mac_01.png" alt="Mac Preview" height="360" />
 </div>
 
+## Installation
+
+See the following subsections for details on the different installation methods.
+
+- [Swift Package Manager](INSTALLATION.md#swift-package-manager)
+- [CocoaPods](INSTALLATION.md#cocoaPods)
+- [Carthage](INSTALLATION.md#carthage)
+- [Submodule](INSTALLATION.md#submodule)
+
 ## Usage
 
 1. Setup KYNearbyService with your service type.
