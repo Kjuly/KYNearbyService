@@ -143,7 +143,7 @@ struct KYNearbyConnectionPeerCell: View {
   private func _peerStatusAndNameLabel() -> some View {
     Image(systemName: KYNearbyConnectionViewIconName.peerStatusIndicator)
       .foregroundColor(_statusColor())
-      .frame(width: KYNearbyConnectionViewDimension.PeerCell.peerStatusIndicatorSizeLength)
+      .frame(width: KYNearbyConnectionViewDimension.PeerCell.peerStatusIndicatorSideLength)
     Text(self.item.displayName)
       .font(self.labelFont)
       .foregroundColor(self.defaultContentColor)
@@ -192,8 +192,8 @@ struct KYNearbyConnectionPeerCell: View {
       Image(systemName: KYNearbyConnectionViewIconName.terminateProcessing)
         .foregroundColor(self.accentColor)
     }
-    .frame(width: KYNearbyConnectionViewDimension.IconButtonSizeLength.small,
-           height: KYNearbyConnectionViewDimension.IconButtonSizeLength.regular,
+    .frame(width: KYNearbyConnectionViewDimension.IconButtonSideLength.small,
+           height: KYNearbyConnectionViewDimension.IconButtonSideLength.regular,
            alignment: .trailing)
   }
 

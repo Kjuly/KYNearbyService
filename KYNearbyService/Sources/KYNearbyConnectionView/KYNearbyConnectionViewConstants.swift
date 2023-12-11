@@ -26,14 +26,14 @@ enum KYNearbyConnectionViewDimension {
     // static let large: CGFloat = 10
   }
 
-  public enum IconButtonSizeLength {
+  public enum IconButtonSideLength {
     static let regular: CGFloat = 44
     static let small: CGFloat = 32
   }
 
   public enum PeerCell {
     public static let horizontalSpacing: CGFloat = 10
-    public static let peerStatusIndicatorSizeLength: CGFloat = 20
-    public static let secondaryContentLeadingPadding: CGFloat = peerStatusIndicatorSizeLength + horizontalSpacing
+    public static let peerStatusIndicatorSideLength: CGFloat = 20
+    public static let secondaryContentLeadingPadding: CGFloat = peerStatusIndicatorSideLength + horizontalSpacing
   }
 }
