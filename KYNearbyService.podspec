@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.social_media_url   = "https://twitter.com/kJulYu"
 
   spec.ios.deployment_target = "15.5"
-  spec.osx.deployment_target = "13.0"
+  spec.osx.deployment_target = "12.0"
 
   spec.swift_version = '5.0'
 
