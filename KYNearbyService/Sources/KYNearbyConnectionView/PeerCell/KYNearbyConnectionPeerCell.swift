@@ -14,7 +14,9 @@ struct KYNearbyConnectionPeerCell: View {
   @ObservedObject var item: KYNearbyPeerModel
 
   @EnvironmentObject var viewModel: KYNearbyConnectionViewModel
+#if os(iOS)
   @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+#endif
 
   @State var isPresentingActions: Bool = false
 
@@ -50,11 +52,15 @@ struct KYNearbyConnectionPeerCell: View {
   // MARK: - Private
 
   private func _isCompactWidth() -> Bool {
+#if os(macOS)
+    return false
+#else
     if KYNearbyConnectionView.isCompactDevice {
       return self.verticalSizeClass != .compact
     } else {
       return false
     }
+#endif
   }
 
   private func _statusColor() -> Color {
