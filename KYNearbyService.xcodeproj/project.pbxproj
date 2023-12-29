@@ -20,7 +20,6 @@
 		7FB295812B0F4D9000CB4386 /* KYNearbyConnectionViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB295802B0F4D9000CB4386 /* KYNearbyConnectionViewConstants.swift */; };
 		7FBACE212B0EFE90001D167C /* KYNearbyService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE202B0EFE8F001D167C /* KYNearbyService.docc */; };
 		7FBACE272B0EFE90001D167C /* KYNearbyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBACE1C2B0EFE8F001D167C /* KYNearbyService.framework */; };
-		7FBACE2C2B0EFE90001D167C /* KYNearbyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE2B2B0EFE90001D167C /* KYNearbyServiceTests.swift */; };
 		7FBACE2D2B0EFE90001D167C /* KYNearbyService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FBACE1F2B0EFE8F001D167C /* KYNearbyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7FBACE492B0F005E001D167C /* KYNearbyServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE392B0F005E001D167C /* KYNearbyServiceConstants.swift */; };
 		7FBACE4A2B0F005E001D167C /* KYNearbyService+ReceivedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE3A2B0F005E001D167C /* KYNearbyService+ReceivedFile.swift */; };
@@ -73,7 +72,6 @@
 		7FBACE1F2B0EFE8F001D167C /* KYNearbyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYNearbyService.h; sourceTree = "<group>"; };
 		7FBACE202B0EFE8F001D167C /* KYNearbyService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = KYNearbyService.docc; sourceTree = "<group>"; };
 		7FBACE262B0EFE90001D167C /* KYNearbyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYNearbyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FBACE2B2B0EFE90001D167C /* KYNearbyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYNearbyServiceTests.swift; sourceTree = "<group>"; };
 		7FBACE392B0F005E001D167C /* KYNearbyServiceConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNearbyServiceConstants.swift; sourceTree = "<group>"; };
 		7FBACE3A2B0F005E001D167C /* KYNearbyService+ReceivedFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyService+ReceivedFile.swift"; sourceTree = "<group>"; };
 		7FBACE3C2B0F005E001D167C /* KYNearbyService+MCNearbyServiceBrowserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyService+MCNearbyServiceBrowserDelegate.swift"; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 		7FBACE2A2B0EFE90001D167C /* KYNearbyServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FBACE2B2B0EFE90001D167C /* KYNearbyServiceTests.swift */,
 				7FBACE682B0F35E2001D167C /* KYNearbyService */,
 			);
 			path = KYNearbyServiceTests;
@@ -471,7 +468,6 @@
 			files = (
 				7FBACE6D2B0F3EB4001D167C /* KYNearbyServiceConstantsTests.swift in Sources */,
 				7FBACE712B0F4002001D167C /* KYNearbyServiceConfigurationTests.swift in Sources */,
-				7FBACE2C2B0EFE90001D167C /* KYNearbyServiceTests.swift in Sources */,
 				7FBACE6F2B0F3F9E001D167C /* KYNearbyServiceConstants_ObjCTests.swift in Sources */,
 				7FBACE6A2B0F35F1001D167C /* KYNearbyService_ReceivedFileTests.swift in Sources */,
 			);
