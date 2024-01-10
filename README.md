@@ -73,7 +73,10 @@ NotificationCenter.default.addObserver(
 
 ## All Peer Status Preview
 
+<div align="center">
 <img src="https://raw.githubusercontent.com/Kjuly/preview/main/KYNearbyService/AllPeerStatus.png" alt="iPhone Preview" height="360" /> 
+<img src="https://raw.githubusercontent.com/Kjuly/preview/main/KYNearbyService/AllPeerStatusLandscape.png" alt="iPhone Preview" height="260" />
+</div>
 
 You can go to the demo project's `KYNearbyServiceDemoApp.init()`, and switch `.none` to `allPeerStatuses` to get a list of all peer statuses:
 ```swift
