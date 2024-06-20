@@ -109,7 +109,6 @@ struct KYNearbyConnectionPeerCell: View {
     }
   }
 
-  @ViewBuilder
   private func _mainContentRow() -> some View {
     HStack(alignment: .center, spacing: KYNearbyConnectionViewDimension.PeerCell.horizontalSpacing) {
       // Peer Status & Name
@@ -157,7 +156,6 @@ struct KYNearbyConnectionPeerCell: View {
       .frame(maxWidth: .infinity, alignment: .leading)
   }
 
-  @ViewBuilder
   private func _connectionStatusIndicatorLabel() -> some View {
     Text(self.item.connectionStatus.text)
       .font(self.smallFontInBold)
@@ -168,7 +166,6 @@ struct KYNearbyConnectionPeerCell: View {
       .cornerRadius(KYNearbyConnectionViewDimension.ViewCornerRadius.regular)
   }
 
-  @ViewBuilder
   private func _connectingIndicator() -> some View {
     HStack(spacing: KYNearbyConnectionViewDimension.Margin.level_2) {
       Text("LS:Connection Status:Connecting".ky_nearbyServiceLocalized)
@@ -179,7 +176,6 @@ struct KYNearbyConnectionPeerCell: View {
     }
   }
 
-  @ViewBuilder
   private func _sendButton() -> some View {
     Button {
       p_askToSendResource(for: self.item)
@@ -190,7 +186,6 @@ struct KYNearbyConnectionPeerCell: View {
     .buttonStyle(.bordered)
   }
 
-  @ViewBuilder
   private func _terminateDataProcessingButton() -> some View {
     Button {
       KYNearbyService.shared.terminateProcessingIfNeededForItem(self.item)
@@ -228,7 +223,6 @@ struct KYNearbyConnectionPeerCell: View {
     }
   }
 
-  @ViewBuilder
   private func _errorLabel() -> some View {
     Text(self.item.processErrorMessage ?? "")
       .font(self.smallFont)

@@ -70,7 +70,6 @@ struct ContentView: View {
 
   // MARK: - Private (File Selection)
 
-  @ViewBuilder
   private func _fileSelectionSection() -> some View {
     Section {
       Text(self.viewModel.selectedFilename ?? "None")
@@ -90,7 +89,6 @@ struct ContentView: View {
     }
   }
 
-  @ViewBuilder
   private func _archivesSelectionView() -> some View {
     ArchivesSelectionView()
       .environmentObject(self.viewModel)

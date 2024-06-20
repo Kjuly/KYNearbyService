@@ -43,28 +43,24 @@ extension KYNearbyConnectionPeerCell {
 
   // MARK: - Private
 
-  @ViewBuilder
   func _newActionOfConnectItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Connect".ky_nearbyServiceLocalized) {
       KYNearbyService.shared.invitePeerItem(item)
     }
   }
 
-  @ViewBuilder
   func _newActionOfSendResource(for item: KYNearbyPeerModel) -> some View {
     Button("LS:Send".ky_nearbyServiceLocalized) {
       p_askToSendResource(for: item)
     }
   }
 
-  @ViewBuilder
   func _newActionOfTerminateProcessingItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Terminate".ky_nearbyServiceLocalized, role: .destructive) {
       KYNearbyService.shared.terminateProcessingIfNeededForItem(item)
     }
   }
 
-  @ViewBuilder
   func _newActionOfDisconnectItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Disconnect".ky_nearbyServiceLocalized, role: .destructive) {
       KYNearbyService.shared.terminateProcessingIfNeededForItem(item)
@@ -74,14 +70,12 @@ extension KYNearbyConnectionPeerCell {
 
   // MARK: - Private (Block & Unblock)
 
-  @ViewBuilder
   func _newActionOfBlockItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Block".ky_nearbyServiceLocalized, role: .destructive) {
       KYNearbyService.shared.setPeerItem(item, blocked: true)
     }
   }
 
-  @ViewBuilder
   func _newActionOfUnblockItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Unblock".ky_nearbyServiceLocalized) {
       KYNearbyService.shared.setPeerItem(item, blocked: false)
@@ -90,7 +84,6 @@ extension KYNearbyConnectionPeerCell {
 
   // MARK: - Private (Cancel)
 
-  @ViewBuilder
   func _newActionOfCancel() -> some View {
     Button("LS:Cancel".ky_nearbyServiceLocalized, role: .cancel) {
       self.isPresentingActions = false

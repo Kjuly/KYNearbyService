@@ -138,7 +138,6 @@ public struct KYNearbyConnectionView: View {
 
   // MARK: - Private (Visible to Others As)
 
-  @ViewBuilder
   private func _visibleToOthersAsCell() -> some View {
     HStack {
       _visibleToOthersAsTextField()
@@ -152,7 +151,6 @@ public struct KYNearbyConnectionView: View {
     .listRowBackground(self.secondaryBackgroundColor)
   }
 
-  @ViewBuilder
   private func _visibleToOthersAsTextField() -> some View {
     TextField(
       "",
@@ -177,7 +175,6 @@ public struct KYNearbyConnectionView: View {
 
   // MARK: - Private (Users Nearby)
 
-  @ViewBuilder
   private func _noUserFoundView() -> some View {
     VStack(alignment: .center, spacing: KYNearbyConnectionViewDimension.Margin.level_1, content: {
       Text("LS:No User Found:Title".ky_nearbyServiceLocalized)
@@ -192,7 +189,6 @@ public struct KYNearbyConnectionView: View {
     .listRowBackground(self.defaultBackgroundColor)
   }
 
-  @ViewBuilder
   private func _usersNearbyView() -> some View {
     ForEach(self.viewModel.peers, id: \.peerID) { item in
       KYNearbyConnectionPeerCell(item: item)
