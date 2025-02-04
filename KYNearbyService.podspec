@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "KYNearbyService"
-  spec.version      = "1.2.0"
+  spec.version      = "2.1.1"
   spec.summary      = "A service for nearby discovery and communication."
   spec.license      = "MIT"
   spec.source       = { :git => "https://github.com/Kjuly/KYNearbyService.git", :tag => spec.version.to_s }
