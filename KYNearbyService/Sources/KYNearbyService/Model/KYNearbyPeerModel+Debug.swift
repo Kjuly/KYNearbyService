@@ -73,7 +73,7 @@ extension KYNearbyPeerModel {
   }
 }
 
-class MockProgress: Progress {
+class MockProgress: Progress, @unchecked Sendable {
 
   static func debug_makeForProcessingPeer() -> MockProgress {
     let progress = MockProgress()
