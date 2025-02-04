@@ -20,7 +20,6 @@ extension KYNearbyService: MCNearbyServiceAdvertiserDelegate {
 
   /// Incoming invitation request. Call the invitationHandler block with YES
   ///   and a valid session to connect the inviting peer to the session.
-  @MainActor
   public func advertiser(
     _ advertiser: MCNearbyServiceAdvertiser,
     didReceiveInvitationFromPeer peerID: MCPeerID,
@@ -34,6 +33,54 @@ extension KYNearbyService: MCNearbyServiceAdvertiserDelegate {
 
     let title: String = "LS:Invitation".ky_nearbyServiceLocalized
     let message: String = String(format: "LS:%@ wants to connect.".ky_nearbyServiceLocalized, peerID.displayName)
+    DispatchQueue.main.async {
+      self._presentAlert(
+        title: title,
+        message: message,
+        peerID: peerID,
+        invitationHandler: invitationHandler)
+    }
+  }
+
+  /// Advertising did not start due to an error.
+  public func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
+    presentErrorAlert(message: error.localizedDescription)
+  }
+
+  // MARK: - Private
+
+  @MainActor
+  private func _blockInvitation(from peerID: MCPeerID) {
+    self.blockedPeerIDs.insert(peerID)
+
+    if let matchedItem = self.p_getItem(with: peerID) {
+      matchedItem.connectionStatus = .blocked
+      NotificationCenter.default.post(name: .KYNearbyService.peerDidChangeState, object: matchedItem)
+    }
+  }
+
+  @MainActor
+  private func _acceptInvitation(from peerID: MCPeerID) {
+    // If the connection accepted peer not visible to others, show it in this connected device.
+    if self.p_getItem(with: peerID) == nil {
+      let newItem = KYNearbyPeerModel(peerID: peerID, isVisibleToOthers: false, connectionStatus: .connected)
+      self.peers.append(newItem)
+
+      let userInfo: [String: Any] = [
+        KYNearbyServiceNotificationUserInfoKey.peerID: peerID,
+        KYNearbyServiceNotificationUserInfoKey.peerItem: newItem,
+      ]
+      NotificationCenter.default.post(name: .KYNearbyService.foundPeer, object: nil, userInfo: userInfo)
+    }
+  }
+
+  @MainActor
+  private func _presentAlert(
+    title: String,
+    message: String,
+    peerID: MCPeerID,
+    invitationHandler: @escaping (Bool, MCSession?) -> Void
+  ) {
 #if os(macOS)
     let alert = NSAlert()
     alert.messageText = title
@@ -71,38 +118,5 @@ extension KYNearbyService: MCNearbyServiceAdvertiserDelegate {
     }))
     p_appKeyViewController()?.present(alertController, animated: true)
 #endif
-  }
-
-  /// Advertising did not start due to an error.
-  @MainActor
-  public func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-    presentErrorAlert(message: error.localizedDescription)
-  }
-
-  // MARK: - Private
-
-  @MainActor
-  private func _blockInvitation(from peerID: MCPeerID) {
-    self.blockedPeerIDs.insert(peerID)
-
-    if let matchedItem = self.p_getItem(with: peerID) {
-      matchedItem.connectionStatus = .blocked
-      NotificationCenter.default.post(name: .KYNearbyService.peerDidChangeState, object: matchedItem)
-    }
-  }
-
-  @MainActor
-  private func _acceptInvitation(from peerID: MCPeerID) {
-    // If the connection accepted peer not visible to others, show it in this connected device.
-    if self.p_getItem(with: peerID) == nil {
-      let newItem = KYNearbyPeerModel(peerID: peerID, isVisibleToOthers: false, connectionStatus: .connected)
-      self.peers.append(newItem)
-
-      let userInfo: [String: Any] = [
-        KYNearbyServiceNotificationUserInfoKey.peerID: peerID,
-        KYNearbyServiceNotificationUserInfoKey.peerItem: newItem,
-      ]
-      NotificationCenter.default.post(name: .KYNearbyService.foundPeer, object: nil, userInfo: userInfo)
-    }
   }
 }
