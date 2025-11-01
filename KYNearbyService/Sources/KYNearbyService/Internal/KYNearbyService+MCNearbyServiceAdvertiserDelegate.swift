@@ -14,7 +14,7 @@ import KYLogger
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 extension KYNearbyService: MCNearbyServiceAdvertiserDelegate {
 
@@ -117,6 +117,6 @@ extension KYNearbyService: MCNearbyServiceAdvertiserDelegate {
       invitationHandler(true, self.session)
     }))
     p_appKeyViewController()?.present(alertController, animated: true)
-#endif
+#endif // os(macOS)
   }
 }

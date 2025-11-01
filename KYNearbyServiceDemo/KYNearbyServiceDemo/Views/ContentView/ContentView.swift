@@ -23,7 +23,7 @@ struct ContentView: View {
     theme: .demo_makeTheme(),
     formWrapped: false,
     hasSendableData: false)
-#endif
+#endif // os(macOS)
 
   // MARK: - View
 
@@ -39,14 +39,14 @@ struct ContentView: View {
       }
 #if os(macOS)
       .formStyle(.grouped)
-#endif
+#endif // os(macOS)
       .demo_nearbyServiceDemoHideScrollContentBackground()
       .animation(.ky_nearbyConnectionViewAnimation, value: self.nearbyConnectionViewModel.peersCount)
     }
     .navigationTitle("Nearby Demo")
 #if os(iOS)
     .navigationBarTitleDisplayMode(.inline)
-#endif
+#endif // os(iOS)
     .onAppear(perform: {
       self.nearbyConnectionViewModel.didPresentView()
     })
@@ -83,7 +83,7 @@ struct ContentView: View {
         Label("Browse Archives", systemImage: "archivebox")
           .foregroundColor(.demo_accent)
       }
-#endif
+#endif // os(iOS)
     } header: {
       Text("File to Send").foregroundColor(.demo_secondaryContent)
     }

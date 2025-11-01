@@ -92,6 +92,6 @@ public struct KYNearbyConnectionViewTheme {
       greenStatusColor: .green,
       redStatusColor: .red,
       disabledStatusColor: .secondary)
-#endif
+#endif // os(macOS)
   }
 }

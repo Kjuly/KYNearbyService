@@ -13,7 +13,7 @@ extension KYNearbyConnectionViewModel {
 
   func notification_setup() {
     let defaultCenter = NotificationCenter.default
-    //
+
     // From KYNearbyService
     //
     defaultCenter.addObserver(

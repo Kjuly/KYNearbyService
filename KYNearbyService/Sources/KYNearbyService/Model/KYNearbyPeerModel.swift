@@ -6,7 +6,6 @@
 //  Copyright © 2020 Kjuly. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 import MultipeerConnectivity
 
@@ -44,17 +43,18 @@ public class KYNearbyPeerModel: NSObject, ObservableObject {
       }
       self.observation = self.progress?.observe(
         \.fractionCompleted,
-         options: .new,
-         changeHandler: { [weak self] (_: Progress, change: NSKeyValueObservedChange<Double>) in
-           let fractionCompleted: Double = change.newValue ?? 0
-           let progressCounter: Int = Int(round(fractionCompleted * 100))
+         options: .new
+      ) { [weak self] (_: Progress, change: NSKeyValueObservedChange<Double>) in
 
-           if self?.progressCounter != progressCounter {
-             DispatchQueue.main.async {
-               self?.progressCounter = progressCounter
-             }
-           }
-         })
+        let fractionCompleted: Double = change.newValue ?? 0
+        let progressCounter: Int = Int(round(fractionCompleted * 100))
+        if self?.progressCounter == progressCounter {
+          return
+        }
+        DispatchQueue.main.async {
+          self?.progressCounter = progressCounter
+        }
+      }
     }
   }
 

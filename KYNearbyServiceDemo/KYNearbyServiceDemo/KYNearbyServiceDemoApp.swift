@@ -25,7 +25,7 @@ struct KYNearbyServiceDemoApp: App {
     theme: .demo_makeTheme(),
     formWrapped: false,
     hasSendableData: false)
-#endif
+#endif // os(macOS)
 
   // MARK: - Init
 
@@ -40,7 +40,7 @@ struct KYNearbyServiceDemoApp: App {
       viewInterface: nil))
 #if DEBUG
     KYNearbyService.shared.debug_populateMockPeers(for: .none)
-#endif
+#endif // DEBUG
   }
 
   var body: some Scene {
@@ -65,7 +65,7 @@ struct KYNearbyServiceDemoApp: App {
           .environmentObject(self.viewModel)
           .environmentObject(self.nearbyConnectionViewModel)
       }
-#endif
+#endif // os(iOS)
     }
   }
 }

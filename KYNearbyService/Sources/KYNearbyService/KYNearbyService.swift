@@ -75,7 +75,7 @@ public class KYNearbyService: NSObject {
       } else {
         KYNearbyService.config = KYNearbyServiceConfiguration(serviceType: KYNearbyServiceConfiguration.debug_serviceTypeForDemo)
       }
-#endif
+#endif // DEBUG
     }
     super.init()
   }

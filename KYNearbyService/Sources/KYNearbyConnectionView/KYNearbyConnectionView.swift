@@ -12,7 +12,7 @@ import SwiftUI
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 public struct KYNearbyConnectionView: View {
 
@@ -20,7 +20,7 @@ public struct KYNearbyConnectionView: View {
   static let isCompactDevice: Bool = false
 #else
   static let isCompactDevice: Bool = (UIDevice.current.userInterfaceIdiom == .phone)
-#endif
+#endif // os(macOS)
 
   @ObservedObject var viewModel: KYNearbyConnectionViewModel
 
@@ -38,7 +38,7 @@ public struct KYNearbyConnectionView: View {
   public var body: some View {
 #if DEBUG
     let _ = Self._printChanges() // swiftlint:disable:this redundant_discardable_let
-#endif
+#endif // DEBUG
     _contentView()
       .onChange(of: self.focusedField) { newValue in
         self.viewModel.focusedField = newValue
@@ -50,7 +50,7 @@ public struct KYNearbyConnectionView: View {
       .onReceive(NotificationCenter.default.publisher(for: UIScene.didEnterBackgroundNotification)) { _ in
         _endEditingIfNeeded()
       }
-#endif
+#endif // os(iOS)
   }
 
   // MARK: - Private
@@ -81,8 +81,8 @@ public struct KYNearbyConnectionView: View {
 
   @ViewBuilder
   private func _sections() -> some View {
-    //
     // "Visible to Others As"
+    //
     Section {
       _visibleToOthersAsCell()
     } header: {
@@ -93,8 +93,8 @@ public struct KYNearbyConnectionView: View {
         .foregroundColor(self.secondaryContentColor)
     }
 
-    //
     // Users Nearby
+    //
     Section {
       if self.viewModel.peers.isEmpty {
         _noUserFoundView()
@@ -106,8 +106,8 @@ public struct KYNearbyConnectionView: View {
         .foregroundColor(self.secondaryContentColor)
     }
 
-    //
     // Disconnect All
+    //
     Section {
       Button(role: .destructive) {
         _endEditingIfNeeded()
@@ -136,7 +136,7 @@ public struct KYNearbyConnectionView: View {
     }
   }
 
-  // MARK: - Private (Visible to Others As)
+  // MARK: - Private - Visible to Others As
 
   private func _visibleToOthersAsCell() -> some View {
     HStack {
@@ -159,7 +159,7 @@ public struct KYNearbyConnectionView: View {
     )
 #if os(iOS)
     .textInputAutocapitalization(.never)
-#endif
+#endif // os(iOS)
     .autocorrectionDisabled()
     .focused($focusedField, equals: .visibleToOthersAs)
     .onChange(of: self.focusedField, perform: { [oldValue = self.focusedField] newValue in
@@ -173,7 +173,7 @@ public struct KYNearbyConnectionView: View {
     .submitLabel(.done)
   }
 
-  // MARK: - Private (Users Nearby)
+  // MARK: - Private - Users Nearby
 
   private func _noUserFoundView() -> some View {
     VStack(alignment: .center, spacing: KYNearbyConnectionViewDimension.Margin.level_1, content: {
@@ -196,7 +196,7 @@ public struct KYNearbyConnectionView: View {
     }
   }
 
-  // MARK: - Private (Others)
+  // MARK: - Private - Others
 
   private func _endEditingIfNeeded() {
     if self.focusedField != nil {
@@ -250,10 +250,14 @@ extension KYNearbyConnectionView {
 
 #if DEBUG
 struct KYNearbyConnectionView_Previews: PreviewProvider {
+
   static var previews: some View {
-    let viewModel = KYNearbyConnectionViewModel(formWrapped: true, hasSendableData: true, populateFakePeers: true)
+    let viewModel = KYNearbyConnectionViewModel(
+      formWrapped: true,
+      hasSendableData: true,
+      populateFakePeers: true
+    )
     KYNearbyConnectionView(viewModel: viewModel)
-      .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro"))
   }
 }
-#endif // END #if DEBUG
+#endif // DEBUG

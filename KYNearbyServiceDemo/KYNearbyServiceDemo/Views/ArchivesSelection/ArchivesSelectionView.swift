@@ -32,7 +32,7 @@ struct ArchivesSelectionView: View {
     .navigationTitle("Archives")
 #if os(iOS)
     .navigationBarTitleDisplayMode(.inline)
-#endif
+#endif // os(iOS)
     .onReceive(NotificationCenter.default.publisher(for: .KYNearbyService.didReceiveResource)) { _ in
       _loadArchives()
     }
@@ -65,8 +65,8 @@ struct ArchivesSelectionView: View {
 
   @ViewBuilder
   private func _contentView() -> some View {
-    //
     // Loading View
+    //
     if self.isLoadingArchives {
       List {
         Text("Filename A")
@@ -80,8 +80,8 @@ struct ArchivesSelectionView: View {
         }
       })
     }
-    //
     // Deleting Archives
+    //
     else if self.isDeletingArchives {
       HStack(spacing: 5) {
         ProgressView()
@@ -95,8 +95,8 @@ struct ArchivesSelectionView: View {
         }
       })
     }
-    //
     // Empty View
+    //
     else if self.filenames.isEmpty {
       VStack(alignment: .center, spacing: 5) {
         Text("No Files")
@@ -113,8 +113,8 @@ struct ArchivesSelectionView: View {
       }
       .padding(.horizontal, 15)
     }
-    //
     // List View
+    //
     else {
       List(self.filenames, id: \.self, selection: $viewModel.selectedFilename) {
         Text($0).foregroundColor(.demo_defaultContent)

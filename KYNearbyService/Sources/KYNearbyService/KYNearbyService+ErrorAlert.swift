@@ -12,7 +12,7 @@ import Foundation
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 extension KYNearbyService {
 
@@ -32,6 +32,6 @@ extension KYNearbyService {
     let alertController = UIAlertController(title: "LS:Error Occurred".ky_nearbyServiceLocalized, message: message, preferredStyle: .alert)
     alertController.addAction(.init(title: "LS:Cancel".ky_nearbyServiceLocalized, style: .cancel))
     p_appKeyViewController()?.present(alertController, animated: true)
-#endif
+#endif // os(macOS)
   }
 }

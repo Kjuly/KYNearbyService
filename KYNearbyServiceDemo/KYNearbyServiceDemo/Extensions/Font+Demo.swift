@@ -29,4 +29,4 @@ extension Font {
   static var demo_label: Font { return .system(size: UIFont.labelFontSize) }
   static var demo_labelInBold: Font { return .system(size: UIFont.labelFontSize, weight: .bold) }
 }
-#endif
+#endif // os(macOS)

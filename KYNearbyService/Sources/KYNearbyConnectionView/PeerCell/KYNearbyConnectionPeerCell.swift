@@ -16,7 +16,7 @@ struct KYNearbyConnectionPeerCell: View {
   @EnvironmentObject var viewModel: KYNearbyConnectionViewModel
 #if os(iOS)
   @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
-#endif
+#endif // os(iOS)
 
   @State var isPresentingActions: Bool = false
 
@@ -31,7 +31,7 @@ struct KYNearbyConnectionPeerCell: View {
   var body: some View {
 #if DEBUG
     let _ = Self._printChanges() // swiftlint:disable:this redundant_discardable_let
-#endif
+#endif // DEBUG
     VStack(spacing: 0) {
       _contentRows()
     }
@@ -60,7 +60,7 @@ struct KYNearbyConnectionPeerCell: View {
     } else {
       return false
     }
-#endif
+#endif // os(macOS)
   }
 
   private func _statusColor() -> Color {
@@ -72,16 +72,14 @@ struct KYNearbyConnectionPeerCell: View {
     }
   }
 
-  // MARK: - Private (Content View)
+  // MARK: - Private - Content View
 
   @ViewBuilder
   private func _contentRows() -> some View {
-    //
     // Main Content (1st Row)
     //
     _mainContentRow()
 
-    //
     // Secondary Content (2nd Row)
     //
     if self.item.connectionStatus == .connecting {
@@ -101,7 +99,6 @@ struct KYNearbyConnectionPeerCell: View {
       }
     }
 
-    //
     // Tertiary Content (3rd Row)
     //
     if self.item.processErrorMessage != nil {
@@ -142,7 +139,7 @@ struct KYNearbyConnectionPeerCell: View {
     .frame(maxWidth: .infinity)
   }
 
-  // MARK: - Private (View Element)
+  // MARK: - Private - View Element
 
   @ViewBuilder
   private func _peerStatusAndNameLabel() -> some View {
@@ -284,8 +281,13 @@ extension KYNearbyConnectionPeerCell {
 
 #if DEBUG
 struct KYNearbyConnectionPeerCell_Previews: PreviewProvider {
+
   static var previews: some View {
-    let viewModel = KYNearbyConnectionViewModel(formWrapped: true, hasSendableData: true, populateFakePeers: false)
+    let viewModel = KYNearbyConnectionViewModel(
+      formWrapped: true,
+      hasSendableData: true,
+      populateFakePeers: false
+    )
 
     let items: [KYNearbyPeerModel] = KYNearbyPeerModel.debug_makePeersForAllCases()
     Form {
@@ -297,7 +299,6 @@ struct KYNearbyConnectionPeerCell_Previews: PreviewProvider {
       }
       .listRowBackground(viewModel.theme.secondaryBackgroundColor)
     }
-    .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro"))
   }
 }
-#endif // END #if DEBUG
+#endif // DEBUG

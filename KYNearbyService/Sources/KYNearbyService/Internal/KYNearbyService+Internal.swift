@@ -13,7 +13,7 @@ import MultipeerConnectivity
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 extension KYNearbyService {
 
@@ -59,5 +59,5 @@ extension KYNearbyService {
       return keyWindow?.rootViewController
     }
   }
-#endif
+#endif // os(macOS)
 }

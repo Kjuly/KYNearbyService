@@ -56,8 +56,8 @@ public class KYNearbyConnectionViewModel: ObservableObject {
 
     let nearbyService = KYNearbyService.shared
 
-    //
     // Visible to Others As
+    //
     self.shouldVisibleToOthers = nearbyService.isVisibleToOthers
     self.visibleToOthersAsPlaceholder = KYNearbyServiceConfiguration.visibleToOthersAsPlaceholder()
 
@@ -65,17 +65,17 @@ public class KYNearbyConnectionViewModel: ObservableObject {
     self.originalVisibleToOthersAsText = originalVisibleToOthersAsText
     self.visibleToOthersAsText = originalVisibleToOthersAsText
 
-    //
     // Users Nearby
+    //
     self.peers = nearbyService.peers
     self.peersCount = nearbyService.peers.count
 
-    //
     // Disconnection
+    //
     self.isDisconnectionEnabled = nearbyService.hasPeerConnected()
 
-    //
     // Notification
+    //
     notification_setup()
   }
 
@@ -91,7 +91,7 @@ public class KYNearbyConnectionViewModel: ObservableObject {
       formWrapped: formWrapped,
       hasSendableData: hasSendableData)
   }
-#endif // END #if DEBUG
+#endif // DEBUG
 
   // MARK: - View Lifecycle
 

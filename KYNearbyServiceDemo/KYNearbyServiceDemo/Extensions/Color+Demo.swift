@@ -12,7 +12,7 @@ import SwiftUI
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 extension Color {
 
@@ -24,7 +24,7 @@ extension Color {
 #else
   static var demo_defaultBackground: Color { return Color(uiColor: .systemGroupedBackground) }
   static var demo_secondaryBackground: Color { return Color(uiColor: .secondarySystemGroupedBackground) }
-#endif
+#endif // os(macOS)
 
   // MARK: - Accent Color
 

@@ -12,14 +12,14 @@ import Foundation
 import AppKit
 #else
 import UIKit
-#endif
+#endif // os(macOS)
 
 public class KYNearbyServiceConfiguration {
 
 #if DEBUG
   /// A service type for the demo project (refer to /KYNearbyServiceDemo).
   public static let debug_serviceTypeForDemo: String = "nearby-demo"
-#endif
+#endif // DEBUG
 
   /// Equeal to info.plist's NSBonjourServices, but w/o the transport protocol.
   public var serviceType: String
@@ -56,7 +56,7 @@ public protocol KYNearbyServiceViewInterfaceProtocol {
   func ky_keyViewControllerForKYNearbyService() -> NSViewController
 #else
   func ky_keyViewControllerForKYNearbyService() -> UIViewController
-#endif
+#endif // os(macOS)
 }
 
 // MARK: - Default Value for "Visible to Others As"
@@ -72,7 +72,7 @@ extension KYNearbyServiceConfiguration {
       name = UUID().uuidString
     }
     return name
-#endif
+#endif // os(macOS)
   }
 }
 
@@ -90,4 +90,4 @@ public enum KYNearbyServiceTestsFolderURL {
   public static let archives: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("archives_tests")
   public static let temp: URL = FileManager.default.temporaryDirectory.appendingPathComponent("tmp_tests")
 }
-#endif
+#endif // DEBUG

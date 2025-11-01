@@ -68,7 +68,7 @@ extension KYNearbyConnectionPeerCell {
     }
   }
 
-  // MARK: - Private (Block & Unblock)
+  // MARK: - Private - Block & Unblock
 
   func _newActionOfBlockItem(_ item: KYNearbyPeerModel) -> some View {
     Button("LS:Block".ky_nearbyServiceLocalized, role: .destructive) {
@@ -82,7 +82,7 @@ extension KYNearbyConnectionPeerCell {
     }
   }
 
-  // MARK: - Private (Cancel)
+  // MARK: - Private - Cancel
 
   func _newActionOfCancel() -> some View {
     Button("LS:Cancel".ky_nearbyServiceLocalized, role: .cancel) {

@@ -12,21 +12,25 @@ import Foundation
 
 extension String {
   public var ky_nearbyServiceLocalized: String {
-    return NSLocalizedString(self,
-                             tableName: "KYNearbyServiceLocalizations",
-                             bundle: Bundle(identifier: "com.kjuly.KYNearbyService") ?? Bundle.main,
-                             value: "",
-                             comment: "")
+    NSLocalizedString(
+      self,
+      tableName: "KYNearbyServiceLocalizations",
+      bundle: Bundle(identifier: "com.kjuly.KYNearbyService") ?? Bundle.main,
+      value: "",
+      comment: ""
+    )
   }
 }
 
 extension NSString {
   @objc public var ky_nearbyServiceLocalized: NSString {
-    return NSLocalizedString(self as String,
-                             tableName: "KYNearbyServiceLocalizations",
-                             bundle: Bundle(identifier: "com.kjuly.KYNearbyService") ?? Bundle.main,
-                             value: "",
-                             comment: "") as NSString
+    NSLocalizedString(
+      self as String,
+      tableName: "KYNearbyServiceLocalizations",
+      bundle: Bundle(identifier: "com.kjuly.KYNearbyService") ?? Bundle.main,
+      value: "",
+      comment: ""
+    ) as NSString
   }
 }
 
@@ -34,14 +38,14 @@ extension NSString {
 
 extension String {
   public var ky_nearbyServiceLocalized: String {
-    return NSLocalizedString(self, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "")
+    NSLocalizedString(self, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "")
   }
 }
 
 extension NSString {
   @objc public var ky_nearbyServiceLocalized: NSString {
-    return NSLocalizedString(self as String, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "") as NSString
+    NSLocalizedString(self as String, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "") as NSString
   }
 }
 
-#endif
+#endif // KY_NEARBY_SERVICE_FRAMEWORK

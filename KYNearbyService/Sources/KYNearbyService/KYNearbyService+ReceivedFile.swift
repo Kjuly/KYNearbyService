@@ -11,7 +11,7 @@ import KYLogger
 
 extension KYNearbyService {
 
-  // MARK: - Public (Archives Folder)
+  // MARK: - Public - Archives Folder
 
   /// Returns a file URL to archive the received file (will append index if a file with the same exits).
   ///
@@ -31,7 +31,7 @@ extension KYNearbyService {
     try FileManager.default.removeItem(at: folderURL)
   }
 
-  // MARK: - Public (Temp Folder)
+  // MARK: - Public - Temp Folder
 
   /// Returns a temp file URL that hosts the received file (will try to remove the duplicated one if it exists).
   ///
@@ -49,7 +49,7 @@ extension KYNearbyService {
     return fileURL
   }
 
-  // MARK: - Public (Convenient)
+  // MARK: - Public - Convenient
 
   /// Returns a reachable folder URL (will create the folder with intermediate directories if it doesn't exist).
   ///

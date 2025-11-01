@@ -36,4 +36,4 @@ extension KYNearbyService {
     }
   }
 }
-#endif
+#endif // DEBUG

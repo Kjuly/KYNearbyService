@@ -89,4 +89,4 @@ class MockProgress: Progress, @unchecked Sendable {
   }
 }
 
-#endif // END #if DEBUG
+#endif // DEBUG
