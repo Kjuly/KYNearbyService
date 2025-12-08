@@ -162,15 +162,12 @@ public struct KYNearbyConnectionView: View {
 #endif // os(iOS)
     .autocorrectionDisabled()
     .focused($focusedField, equals: .visibleToOthersAs)
-    .onChange(of: self.focusedField, perform: { [oldValue = self.focusedField] newValue in
+    .submitLabel(.done)
+    .onChange(of: self.focusedField) { [oldValue = self.focusedField] newValue in
       if oldValue == .visibleToOthersAs && newValue != .visibleToOthersAs {
         self.viewModel.didEndEditingVisibleToOthersAs(self.viewModel.visibleToOthersAsText)
       }
-    })
-    .onSubmit {
-      self.focusedField = nil
     }
-    .submitLabel(.done)
   }
 
   // MARK: - Private - Users Nearby
