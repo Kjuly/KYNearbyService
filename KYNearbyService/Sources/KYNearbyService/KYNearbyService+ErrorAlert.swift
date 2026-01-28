@@ -20,7 +20,8 @@ extension KYNearbyService {
   ///
   /// - Parameter message: Error details.
   ///
-  func presentErrorAlert(message: String) {
+  @MainActor
+  static func presentErrorAlert(message: String) {
 #if os(macOS)
     let alert = NSAlert()
     alert.alertStyle = .warning

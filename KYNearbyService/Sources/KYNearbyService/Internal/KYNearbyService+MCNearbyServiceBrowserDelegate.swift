@@ -30,7 +30,7 @@ extension KYNearbyService: MCNearbyServiceBrowserDelegate {
       }
     } else {
       // Check whether the new peer has been connected already.
-      var newItemState: KYNearbyPeerConnectionStatus
+      let newItemState: KYNearbyPeerConnectionStatus
       if
         let session = self.session,
         session.connectedPeers.contains(where: { peerName == $0.displayName })
@@ -78,7 +78,7 @@ extension KYNearbyService: MCNearbyServiceBrowserDelegate {
   public func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
     KYLog(.error, "Browsing did not start due to an error: \(error)")
     let errorMessage = error.localizedDescription
-    let userInfo: [String: Any] = [
+    let userInfo: [String: any Sendable] = [
       KYNearbyServiceNotificationUserInfoKey.errorMessage: errorMessage
     ]
     DispatchQueue.main.async {

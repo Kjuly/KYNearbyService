@@ -55,7 +55,7 @@ public enum KYNearbyServiceNotificationUserInfoKey {
 
 // MARK: - Peer Connection Status
 
-public enum KYNearbyPeerConnectionStatus: Int {
+public enum KYNearbyPeerConnectionStatus: Int, Sendable {
   /// Not connected to the session.
   case notConnected = 0
   /// Peer is connecting to the session.
@@ -81,7 +81,7 @@ public enum KYNearbyPeerConnectionStatus: Int {
 // MARK: - Peer Process Status
 
 @objc
-public enum KYNearbyPeerProcessStatus: Int {
+public enum KYNearbyPeerProcessStatus: Int, Sendable {
   case none = 0
   case pending
   case processing

@@ -26,7 +26,7 @@ extension KYNearbyService {
       self.peers.remove(at: index)
     }
 
-    let userInfo: [String: Any] = [
+    let userInfo: [String: any Sendable] = [
       KYNearbyServiceNotificationUserInfoKey.peerID: item.peerID,
       KYNearbyServiceNotificationUserInfoKey.peerItem: item,
     ]
@@ -35,12 +35,13 @@ extension KYNearbyService {
     }
   }
 
-  func p_popResourceActionInfo(with filename: String) -> [String: Any]? {
+  func p_popResourceActionInfo(with filename: String) -> [String: any Sendable]? {
     return self.receivedResourceActionInfo.removeValue(forKey: filename)
   }
 
 #if os(macOS)
-  func p_appKeyViewController() -> NSViewController? {
+  @MainActor
+  static func p_appKeyViewController() -> NSViewController? {
     if let viewInterface = KYNearbyService.config.viewInterface {
       return viewInterface.ky_keyViewControllerForKYNearbyService()
     } else {
@@ -48,7 +49,8 @@ extension KYNearbyService {
     }
   }
 #else
-  func p_appKeyViewController() -> UIViewController? {
+  @MainActor
+  static func p_appKeyViewController() -> UIViewController? {
     if let viewInterface = KYNearbyService.config.viewInterface {
       return viewInterface.ky_keyViewControllerForKYNearbyService()
     } else {

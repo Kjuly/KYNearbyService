@@ -10,7 +10,7 @@ import SwiftUI
 import MultipeerConnectivity
 
 @objc
-public class KYNearbyPeerModel: NSObject, ObservableObject {
+public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable {
 
   /// Peer ID of the user nearby.
   public let peerID: MCPeerID
@@ -48,11 +48,11 @@ public class KYNearbyPeerModel: NSObject, ObservableObject {
 
         let fractionCompleted: Double = change.newValue ?? 0
         let progressCounter: Int = Int(round(fractionCompleted * 100))
-        if self?.progressCounter == progressCounter {
-          return
-        }
-        DispatchQueue.main.async {
-          self?.progressCounter = progressCounter
+        DispatchQueue.main.async { [weak self] in
+          guard let self, self.progressCounter != progressCounter else {
+            return
+          }
+          self.progressCounter = progressCounter
         }
       }
     }

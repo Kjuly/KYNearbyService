@@ -36,8 +36,8 @@ extension KYNearbyService: MCSessionDelegate {
   public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
     do {
       let message = try JSONSerialization.jsonObject(with: data, options: [])
-      if let decodedInfo = message as? [String: [String: Any]] {
-        decodedInfo.forEach { (key: String, value: [String: Any]) in
+      if let decodedInfo = message as? [String: [String: any Sendable]] {
+        decodedInfo.forEach { (key: String, value: [String: any Sendable]) in
           self.receivedResourceActionInfo[key] = value
         }
         KYLog(.notice, "Received decoded info: \(decodedInfo); Latest cached: \(self.receivedResourceActionInfo)")
@@ -92,7 +92,9 @@ extension KYNearbyService: MCSessionDelegate {
         - ERROR: \(String(describing: error))
       """)
 
-    var userInfo: [String: Any] = [KYNearbyServiceNotificationUserInfoKey.filename: resourceName]
+    var userInfo: [String: any Sendable] = [
+      KYNearbyServiceNotificationUserInfoKey.filename: resourceName
+    ]
 
     if let item = p_getItem(with: peerID) {
       DispatchQueue.main.async {
@@ -133,8 +135,12 @@ extension KYNearbyService: MCSessionDelegate {
     if userInfo.isEmpty {
       return
     }
-    DispatchQueue.main.async {
-      NotificationCenter.default.post(name: .KYNearbyService.didReceiveResource, object: nil, userInfo: userInfo)
+    DispatchQueue.main.async { [userInfo] in
+      NotificationCenter.default.post(
+        name: .KYNearbyService.didReceiveResource,
+        object: nil,
+        userInfo: userInfo
+      )
     }
   }
 }

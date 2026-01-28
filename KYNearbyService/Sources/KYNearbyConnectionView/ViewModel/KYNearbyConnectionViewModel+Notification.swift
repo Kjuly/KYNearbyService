@@ -93,6 +93,6 @@ extension KYNearbyConnectionViewModel {
       return
     }
     KYLog(.error, "KYNearbyService: Browsing Error: \(errorMessage)")
-    KYNearbyService.shared.presentErrorAlert(message: errorMessage)
+    KYNearbyService.presentErrorAlert(message: errorMessage)
   }
 }

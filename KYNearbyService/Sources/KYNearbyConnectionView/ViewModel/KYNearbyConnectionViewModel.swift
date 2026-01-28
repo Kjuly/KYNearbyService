@@ -59,7 +59,7 @@ public class KYNearbyConnectionViewModel: ObservableObject {
     // Visible to Others As
     //
     self.shouldVisibleToOthers = nearbyService.isVisibleToOthers
-    self.visibleToOthersAsPlaceholder = KYNearbyServiceConfiguration.visibleToOthersAsPlaceholder()
+    self.visibleToOthersAsPlaceholder = KYNearbyServiceConfiguration.visibleToOthersAsPlaceholder
 
     let originalVisibleToOthersAsText = peerDisplayName ?? ""
     self.originalVisibleToOthersAsText = originalVisibleToOthersAsText
@@ -98,7 +98,14 @@ public class KYNearbyConnectionViewModel: ObservableObject {
   public func didPresentView() {
     if !self.isObservedNotification {
       self.isObservedNotification = true
-      KYNearbyService.shared.setupSession(with: self.visibleToOthersAsText)
+
+      let displayName: String
+      if self.visibleToOthersAsText.isEmpty {
+        displayName = self.visibleToOthersAsPlaceholder
+      } else {
+        displayName = self.visibleToOthersAsText
+      }
+      KYNearbyService.shared.setupSession(with: displayName)
       notification_setup()
     }
     KYNearbyService.shared.browseOthers(true)

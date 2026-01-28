@@ -10,11 +10,14 @@ import Foundation
 import MultipeerConnectivity
 import KYLogger
 
+extension MCPeerID: @retroactive @unchecked Sendable {}
+extension MCSession: @retroactive @unchecked Sendable {}
+
 @objc
-public class KYNearbyService: NSObject {
+public class KYNearbyService: NSObject, @unchecked Sendable {
 
   /// The configuration for the nearby service.
-  static var config = KYNearbyServiceConfiguration(serviceType: "")
+  nonisolated(unsafe) private(set) static var config = KYNearbyServiceConfiguration(serviceType: "")
 
   /// Max allowable peer name length in Byte.
   private static let maxAllowablePeerNameLengthInByte: Int = 63
@@ -49,7 +52,7 @@ public class KYNearbyService: NSObject {
   ///   }
   /// }
   /// ```
-  var receivedResourceActionInfo: [String: [String: Any]] = [:]
+  var receivedResourceActionInfo: [String: [String: any Sendable]] = [:]
 
   // MARK: - Deinit
 
@@ -84,7 +87,7 @@ public class KYNearbyService: NSObject {
 
   @objc
   public func setupSession(with displayName: String) {
-    var adjustedDisplayName: String = (displayName.isEmpty ? KYNearbyServiceConfiguration.visibleToOthersAsPlaceholder() : displayName)
+    var adjustedDisplayName: String = displayName
 
     if adjustedDisplayName.lengthOfBytes(using: .utf8) > KYNearbyService.maxAllowablePeerNameLengthInByte {
       var trimmedName: String?
@@ -92,7 +95,8 @@ public class KYNearbyService: NSObject {
         trimmedName = NSString(
           bytes: bytes,
           length: KYNearbyService.maxAllowablePeerNameLengthInByte,
-          encoding: NSUTF8StringEncoding) as? String
+          encoding: NSUTF8StringEncoding
+        ) as? String
       }
       adjustedDisplayName = trimmedName ?? UUID().uuidString
     }

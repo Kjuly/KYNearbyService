@@ -22,13 +22,13 @@ public class KYNearbyServiceConfiguration {
 #endif // DEBUG
 
   /// Equeal to info.plist's NSBonjourServices, but w/o the transport protocol.
-  public var serviceType: String
+  public let serviceType: String
 
   /// Archives folder URL.
-  public var archivesFolderURL: URL
+  public let archivesFolderURL: URL
 
   /// Temp folder URL.
-  public var tempFolderURL: URL
+  public let tempFolderURL: URL
 
   /// View interface to present peer invitation view and some error alerts.
   public var viewInterface: KYNearbyServiceViewInterfaceProtocol?
@@ -63,7 +63,8 @@ public protocol KYNearbyServiceViewInterfaceProtocol {
 
 extension KYNearbyServiceConfiguration {
 
-  public static func visibleToOthersAsPlaceholder() -> String {
+  @MainActor
+  public static var visibleToOthersAsPlaceholder: String {
 #if os(macOS)
     return Host.current().localizedName ?? UUID().uuidString
 #else
