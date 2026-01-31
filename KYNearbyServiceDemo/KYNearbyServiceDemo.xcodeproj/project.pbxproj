@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F82B4A12B12CE700049D0AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B4A02B12CE700049D0AE /* Assets.xcassets */; };
 		7F82B4A42B12CE700049D0AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B4A32B12CE700049D0AE /* Preview Assets.xcassets */; };
-		7F82B4AB2B12CEA50049D0AE /* KYNearbyServiceDemo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B4AA2B12CEA50049D0AE /* KYNearbyServiceDemo.xcconfig */; };
 		7F82B4BF2B12CF310049D0AE /* ArchivesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B4B22B12CF310049D0AE /* ArchivesSelectionView.swift */; };
 		7F82B4C02B12CF310049D0AE /* ContentViewModel+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B4B42B12CF310049D0AE /* ContentViewModel+Notification.swift */; };
 		7F82B4C12B12CF310049D0AE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B4B52B12CF310049D0AE /* ContentViewModel.swift */; };
@@ -234,7 +233,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2620;
 				ORGANIZATIONNAME = "Kaijie Yu";
 				TargetAttributes = {
 					7F82B4982B12CE6B0049D0AE = {
@@ -290,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F82B4A42B12CE700049D0AE /* Preview Assets.xcassets in Resources */,
-				7F82B4AB2B12CEA50049D0AE /* KYNearbyServiceDemo.xcconfig in Resources */,
 				7F82B4A12B12CE700049D0AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +472,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KYNearbyServiceDemo/PreviewContent\"";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KYNearbyServiceDemo/SupportingFiles/Info.plist;
@@ -509,6 +510,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KYNearbyServiceDemo/PreviewContent\"";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KYNearbyServiceDemo/SupportingFiles/Info.plist;
