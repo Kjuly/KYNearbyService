@@ -12,26 +12,28 @@ import KYNearbyService
 extension ContentViewModel {
 
   func notification_setupObserver() {
-    let defaultCenter = NotificationCenter.default
-    defaultCenter.addObserver(
+    let center = NotificationCenter.default
+    center.addObserver(
       self,
       selector: #selector(_handleKYNearbyServiceDidUpdatePeerDisplayNameNotification),
       name: .KYNearbyService.didUpdatePeerDisplayName,
-      object: nil)
-    defaultCenter.addObserver(
+      object: nil
+    )
+    center.addObserver(
       self,
       selector: #selector(_handleKYNearbyServiceShouldSendResourceNotification),
       name: .KYNearbyService.shouldSendResource,
-      object: nil)
+      object: nil
+    )
   }
 
   func notification_removeObserver() {
-    let defaultCenter = NotificationCenter.default
-    defaultCenter.removeObserver(self, name: .KYNearbyService.didUpdatePeerDisplayName, object: nil)
-    defaultCenter.removeObserver(self, name: .KYNearbyService.shouldSendResource, object: nil)
+    let center = NotificationCenter.default
+    center.removeObserver(self, name: .KYNearbyService.didUpdatePeerDisplayName, object: nil)
+    center.removeObserver(self, name: .KYNearbyService.shouldSendResource, object: nil)
   }
 
-  // MARK: - Private (Custom Display Name)
+  // MARK: - Private - Custom Display Name
 
   @objc private func _handleKYNearbyServiceDidUpdatePeerDisplayNameNotification(_ note: Notification) {
     if let name = note.object as? String {
@@ -39,7 +41,7 @@ extension ContentViewModel {
     }
   }
 
-  // MARK: - Private (Send Resoruce)
+  // MARK: - Private - Send Resoruce
 
   @objc private func _handleKYNearbyServiceShouldSendResourceNotification(_ note: Notification) {
     guard

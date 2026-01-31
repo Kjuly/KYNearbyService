@@ -12,7 +12,7 @@ import KYNearbyService
 extension KYNearbyConnectionViewTheme {
 
   static func demo_makeTheme() -> KYNearbyConnectionViewTheme {
-    return .init(
+    .init(
       labelFont: .demo_label,
       labelFontInBold: .demo_labelInBold,
       smallFont: .demo_small,
@@ -24,6 +24,7 @@ extension KYNearbyConnectionViewTheme {
       secondaryBackgroundColor: .demo_secondaryBackground,
       greenStatusColor: .demo_greenStatus,
       redStatusColor: .demo_redStatus,
-      disabledStatusColor: .demo_disabledStatus)
+      disabledStatusColor: .demo_disabledStatus
+    )
   }
 }

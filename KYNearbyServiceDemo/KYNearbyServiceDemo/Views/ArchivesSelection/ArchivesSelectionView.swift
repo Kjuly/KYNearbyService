@@ -33,9 +33,15 @@ struct ArchivesSelectionView: View {
 #if os(iOS)
     .navigationBarTitleDisplayMode(.inline)
 #endif // os(iOS)
+
+    // Notification Observer
+    //
     .onReceive(NotificationCenter.default.publisher(for: .KYNearbyService.didReceiveResource)) { _ in
       _loadArchives()
     }
+
+    // Toolbar
+    //
     .toolbar {
       if !self.filenames.isEmpty {
         ToolbarItem(placement: .confirmationAction) {

@@ -24,7 +24,8 @@ struct KYNearbyServiceDemoApp: App {
     visibleToOthersAs: UserDefaults.demo_nearbyServiceCustomDisplayName(),
     theme: .demo_makeTheme(),
     formWrapped: false,
-    hasSendableData: false)
+    hasSendableData: false
+  )
 #endif // os(macOS)
 
   // MARK: - Init
@@ -37,7 +38,8 @@ struct KYNearbyServiceDemoApp: App {
       serviceType: KYNearbyServiceConfiguration.debug_serviceTypeForDemo,
       archivesFolderURL: KYNearbyServiceDemoApp.archivesFolderURL,
       tempFolderURL: KYNearbyServiceDefaultFolderURL.temp,
-      viewInterface: nil))
+      viewInterface: nil
+    ))
 #if DEBUG
     KYNearbyService.shared.debug_populateMockPeers(for: .none)
 #endif // DEBUG

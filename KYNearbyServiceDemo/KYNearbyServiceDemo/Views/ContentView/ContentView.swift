@@ -22,7 +22,8 @@ struct ContentView: View {
     visibleToOthersAs: UserDefaults.demo_nearbyServiceCustomDisplayName(),
     theme: .demo_makeTheme(),
     formWrapped: false,
-    hasSendableData: false)
+    hasSendableData: false
+  )
 #endif // os(macOS)
 
   // MARK: - View
@@ -61,12 +62,13 @@ struct ContentView: View {
     .navigationBarTitleDisplayMode(.inline)
 #endif // os(iOS)
 
-    .onAppear(perform: {
-      self.nearbyConnectionViewModel.didPresentView()
-    })
-    .onDisappear(perform: {
-      self.nearbyConnectionViewModel.didDismissView()
-    })
+    // View Lifecycle
+    //
+    .onAppear(perform: self.nearbyConnectionViewModel.didPresentView)
+    .onDisappear(perform: self.nearbyConnectionViewModel.didDismissView)
+
+    // Alert
+    //
     .alert(
       isPresented: .constant(self.viewModel.error != nil),
       error: self.viewModel.error,
@@ -79,7 +81,8 @@ struct ContentView: View {
         if let recoverySuggestion = localizedError.recoverySuggestion {
           Text(recoverySuggestion)
         }
-      })
+      }
+    )
   }
 
   // MARK: - Private (File Selection)
@@ -117,6 +120,10 @@ struct ContentView: View {
   }
 }
 
+// MARK: - Preview
+
+#if DEBUG
 #Preview {
   ContentView()
 }
+#endif // DEBUG
