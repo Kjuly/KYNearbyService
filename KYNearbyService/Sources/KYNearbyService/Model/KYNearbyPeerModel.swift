@@ -9,7 +9,7 @@
 import SwiftUI
 import MultipeerConnectivity
 
-public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable {
+public class KYNearbyPeerModel: ObservableObject, @unchecked Sendable {
 
   /// Peer ID of the user nearby.
   public let peerID: MCPeerID
@@ -129,6 +129,13 @@ public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable 
     self.processStatus = .none
     self.processErrorMessage = errorMessage
     self.progress = nil
+  }
+}
+
+// MARK: - Equatable
+extension KYNearbyPeerModel: Equatable {
+  public static func == (lhs: KYNearbyPeerModel, rhs: KYNearbyPeerModel) -> Bool {
+    lhs.peerID == rhs.peerID
   }
 }
 
