@@ -46,10 +46,7 @@ struct KYNearbyServiceDemoApp: App {
   var body: some Scene {
     WindowGroup {
 #if os(iOS)
-      NavigationView {
-        ContentView()
-      }
-      .navigationViewStyle(.stack)
+      ContentView()
 #else
       NavigationSplitView(columnVisibility: $columnVisibility) {
         ArchivesSelectionView()

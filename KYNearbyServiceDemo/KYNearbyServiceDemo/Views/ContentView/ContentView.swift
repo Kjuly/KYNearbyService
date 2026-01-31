@@ -11,7 +11,7 @@ import KYNearbyService
 
 struct ContentView: View {
 
-  @State private var isPresentingArchivesList: Bool = false
+  @State private var navigationPath = NavigationPath()
 
 #if os(macOS)
   @EnvironmentObject var viewModel: ContentViewModel
@@ -28,6 +28,19 @@ struct ContentView: View {
   // MARK: - View
 
   var body: some View {
+    NavigationStack(path: $navigationPath) {
+      self.rootContentView
+        .navigationDestination(for: String.self) { destination in
+          if destination == "archives" {
+            _archivesSelectionView()
+          }
+        }
+    }
+  }
+
+  // MARK: - Private
+
+  private var rootContentView: some View {
     ZStack {
       Color.demo_defaultBackground
         .ignoresSafeArea()
@@ -47,6 +60,7 @@ struct ContentView: View {
 #if os(iOS)
     .navigationBarTitleDisplayMode(.inline)
 #endif // os(iOS)
+
     .onAppear(perform: {
       self.nearbyConnectionViewModel.didPresentView()
     })
@@ -79,11 +93,12 @@ struct ContentView: View {
         .foregroundColor(.demo_defaultContent)
 
 #if os(iOS)
-      NavigationLink(isActive: $isPresentingArchivesList, destination: _archivesSelectionView) {
-        Label("Browse Archives", systemImage: "archivebox")
-          .foregroundColor(.demo_accent)
+      Button("Browse Archives", systemImage: "archivebox") {
+        self.navigationPath.append("archives")
       }
+      .foregroundStyle(Color.demo_accent)
 #endif // os(iOS)
+
     } header: {
       Text("File to Send").foregroundColor(.demo_secondaryContent)
     }
@@ -97,7 +112,7 @@ struct ContentView: View {
         if self.nearbyConnectionViewModel.hasSendableData != hasSendableData {
           self.nearbyConnectionViewModel.hasSendableData = hasSendableData
         }
-        self.isPresentingArchivesList = false
+        self.navigationPath.removeLast()
       }
   }
 }
