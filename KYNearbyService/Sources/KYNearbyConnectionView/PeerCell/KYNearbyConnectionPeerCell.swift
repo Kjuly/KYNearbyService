@@ -155,12 +155,13 @@ struct KYNearbyConnectionPeerCell: View {
 
   private func _connectionStatusIndicatorLabel() -> some View {
     Text(self.item.connectionStatus.text)
-      .font(self.smallFontInBold)
+      .font(self.smallFontInBold.width(.compressed))
       .padding(.vertical, KYNearbyConnectionViewDimension.Margin.level_1)
       .padding(.horizontal, KYNearbyConnectionViewDimension.Margin.level_2)
       .foregroundColor(.white)
-      .background(Color.black)
-      .cornerRadius(KYNearbyConnectionViewDimension.ViewCornerRadius.regular)
+      .background(
+        Capsule(style: .continuous).fill(Color.black)
+      )
   }
 
   private func _connectingIndicator() -> some View {
