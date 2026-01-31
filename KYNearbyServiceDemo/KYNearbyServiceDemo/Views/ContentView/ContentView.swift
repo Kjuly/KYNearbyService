@@ -96,10 +96,10 @@ struct ContentView: View {
         .foregroundColor(.demo_defaultContent)
 
 #if os(iOS)
-      Button("Browse Archives", systemImage: "archivebox") {
-        self.navigationPath.append("archives")
+      NavigationLink(value: "archives") {
+        Label("Browse Archives", systemImage: "archivebox")
+          .foregroundStyle(Color.demo_accent)
       }
-      .foregroundStyle(Color.demo_accent)
 #endif // os(iOS)
 
     } header: {
