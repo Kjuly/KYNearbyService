@@ -9,7 +9,7 @@
 import SwiftUI
 import KYNearbyService
 
-class ContentViewModel: ObservableObject {
+class ContentViewModel: ObservableObject, @unchecked Sendable {
 
   @Published var selectedFilename: String?
   @Published var error: ContentViewModelError?

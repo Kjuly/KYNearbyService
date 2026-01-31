@@ -53,7 +53,9 @@ extension ContentViewModel {
       item.prepareForProcessing()
     }
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Simulate the file preparing step.
+    Task { @MainActor in
+      try await Task.sleep(nanoseconds: 1_000_000_000) // delay 1 sec to simulate the file preparing step.
+
       self._startSendingFile(filename, to: item)
     }
   }
