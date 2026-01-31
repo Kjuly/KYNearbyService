@@ -7,15 +7,14 @@ let package = Package(
   name: "KYNearbyService",
   defaultLocalization: "en",
   platforms: [
-    .iOS("15.5"),
+    .iOS(.v16),
     .macOS(.v12),
   ],
   products: [
     .library(
       name: "KYNearbyService",
-      targets: [
-        "KYNearbyService",
-      ]),
+      targets: ["KYNearbyService"]
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/Kjuly/KYLogger.git", branch: "main"),
@@ -29,12 +28,14 @@ let package = Package(
       path: "KYNearbyService/Sources",
       resources: [
         .process("Resources/"),
-      ]),
+      ]
+    ),
     .testTarget(
       name: "KYNearbyServiceTests",
       dependencies: [
         "KYNearbyService",
       ],
-      path: "KYNearbyServiceTests"),
+      path: "KYNearbyServiceTests"
+    ),
   ]
 )
