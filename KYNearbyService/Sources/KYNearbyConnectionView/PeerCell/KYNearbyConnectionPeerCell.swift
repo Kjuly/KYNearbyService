@@ -202,13 +202,14 @@ struct KYNearbyConnectionPeerCell: View {
       HStack {
         Text(self.item.processTitle ?? "")
           .font(self.smallFontInBold)
-          .foregroundColor(self.secondaryContentColor)
         Text(self.item.progress?.localizedAdditionalDescription ?? "")
           .font(self.smallFont)
-          .foregroundColor(self.secondaryContentColor)
           .frame(maxWidth: .infinity, alignment: .trailing)
       }
+      .foregroundStyle(self.secondaryContentColor)
       .padding(.leading, KYNearbyConnectionViewDimension.PeerCell.secondaryContentLeadingPadding)
+      .padding(.top, 3)
+
     } else {
       VStack(alignment: .trailing) {
         Text(self.item.processTitle ?? "")
