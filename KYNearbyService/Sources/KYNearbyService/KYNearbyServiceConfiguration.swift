@@ -50,7 +50,6 @@ public class KYNearbyServiceConfiguration {
 
 // MARK: - KYNearbyService View Interface Protocol
 
-@objc
 public protocol KYNearbyServiceViewInterfaceProtocol {
 #if os(macOS)
   func ky_keyViewControllerForKYNearbyService() -> NSViewController

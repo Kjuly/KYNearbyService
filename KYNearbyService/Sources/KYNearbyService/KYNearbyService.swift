@@ -13,7 +13,6 @@ import KYLogger
 extension MCPeerID: @retroactive @unchecked Sendable {}
 extension MCSession: @retroactive @unchecked Sendable {}
 
-@objc
 public class KYNearbyService: NSObject, @unchecked Sendable {
 
   /// The configuration for the nearby service.
@@ -23,19 +22,19 @@ public class KYNearbyService: NSObject, @unchecked Sendable {
   private static let maxAllowablePeerNameLengthInByte: Int = 63
 
   /// KYNearbyService singleton.
-  @objc public static let shared = KYNearbyService()
+  public static let shared = KYNearbyService()
 
   public private(set) var peerID: MCPeerID?
   public private(set) var session: MCSession?
 
-  @objc public internal(set) var isVisibleToOthers: Bool = false
+  public internal(set) var isVisibleToOthers: Bool = false
 
   var isBrowsing: Bool = false
 
   var advertiser: MCNearbyServiceAdvertiser?
   var browser: MCNearbyServiceBrowser?
 
-  @objc public internal(set) var peers: [KYNearbyPeerModel] = []
+  public internal(set) var peers: [KYNearbyPeerModel] = []
   var blockedPeerIDs: Set<MCPeerID> = []
 
   /// Received resource actions to handle manually if needed.
@@ -85,7 +84,6 @@ public class KYNearbyService: NSObject, @unchecked Sendable {
 
   // MARK: - Public
 
-  @objc
   public func setupSession(with displayName: String) {
     var adjustedDisplayName: String = displayName
 

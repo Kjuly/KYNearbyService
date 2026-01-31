@@ -11,7 +11,6 @@ import Foundation
 extension KYNearbyService {
 
   @MainActor
-  @objc
   public func setPeerItem(_ item: KYNearbyPeerModel, blocked: Bool) {
     var updated: Bool = false
 
@@ -38,7 +37,6 @@ extension KYNearbyService {
   }
 
   @MainActor
-  @objc
   public func invitePeerItem(_ item: KYNearbyPeerModel) {
     item.connectionStatus = .connecting
 
@@ -63,7 +61,6 @@ extension KYNearbyService {
   }*/
 
   @MainActor
-  @objc
   public func hasPeerConnected() -> Bool {
     return self.peers.contains { $0.connectionStatus == .connected }
   }
@@ -73,7 +70,6 @@ extension KYNearbyService {
     return self.session?.connectedPeers.count // Note it will not count the connecting peer.
   }*/
 
-  @objc
   public func terminateProcessingIfNeededForItem(_ item: KYNearbyPeerModel) {
     if item.processStatus != .none {
       item.processStatus = .none // Mark it immeditely to avoid duplicate calling.
@@ -81,12 +77,10 @@ extension KYNearbyService {
     }
   }
 
-  @objc
   public func disconnectPeerItem(_ item: KYNearbyPeerModel) {
     self.session?.cancelConnectPeer(item.peerID)
   }
 
-  @objc
   public func disconnectAllPeers() {
     self.session?.disconnect()
   }

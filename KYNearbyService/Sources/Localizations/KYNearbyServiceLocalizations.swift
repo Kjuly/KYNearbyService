@@ -8,10 +8,10 @@
 
 import Foundation
 
-#if KY_NEARBY_SERVICE_FRAMEWORK
-
 extension String {
+
   public var ky_nearbyServiceLocalized: String {
+#if KY_NEARBY_SERVICE_FRAMEWORK
     NSLocalizedString(
       self,
       tableName: "KYNearbyServiceLocalizations",
@@ -19,33 +19,8 @@ extension String {
       value: "",
       comment: ""
     )
-  }
-}
-
-extension NSString {
-  @objc public var ky_nearbyServiceLocalized: NSString {
-    NSLocalizedString(
-      self as String,
-      tableName: "KYNearbyServiceLocalizations",
-      bundle: Bundle(identifier: "com.kjuly.KYNearbyService") ?? Bundle.main,
-      value: "",
-      comment: ""
-    ) as NSString
-  }
-}
-
 #else
-
-extension String {
-  public var ky_nearbyServiceLocalized: String {
     NSLocalizedString(self, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "")
-  }
-}
-
-extension NSString {
-  @objc public var ky_nearbyServiceLocalized: NSString {
-    NSLocalizedString(self as String, tableName: "KYNearbyServiceLocalizations", bundle: .module, value: "", comment: "") as NSString
-  }
-}
-
 #endif // KY_NEARBY_SERVICE_FRAMEWORK
+  }
+}

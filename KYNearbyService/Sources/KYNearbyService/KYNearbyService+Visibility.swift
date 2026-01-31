@@ -12,7 +12,6 @@ import KYLogger
 
 extension KYNearbyService {
 
-  @objc
   public func advertiseSelf(_ shouldAdvertise: Bool) {
     if shouldAdvertise {
       if self.isVisibleToOthers {
@@ -43,7 +42,6 @@ extension KYNearbyService {
     }
   }
 
-  @objc
   public func browseOthers(_ shouldBrowse: Bool) {
     if shouldBrowse {
       if self.isBrowsing {

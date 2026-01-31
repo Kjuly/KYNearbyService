@@ -13,7 +13,6 @@ import KYLogger
 extension KYNearbyService {
 
   @MainActor
-  @objc
   public func sendResource(
     for item: KYNearbyPeerModel,
     at resourceURL: URL,

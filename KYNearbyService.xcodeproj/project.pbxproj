@@ -31,9 +31,7 @@
 		7FBACE502B0F005E001D167C /* KYNearbyService+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE412B0F005E001D167C /* KYNearbyService+Visibility.swift */; };
 		7FBACE512B0F005E001D167C /* KYNearbyPeerModel+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE432B0F005E001D167C /* KYNearbyPeerModel+Debug.swift */; };
 		7FBACE522B0F005E001D167C /* KYNearbyPeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE442B0F005E001D167C /* KYNearbyPeerModel.swift */; };
-		7FBACE532B0F005E001D167C /* KYNearbyPeerModel+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE452B0F005E001D167C /* KYNearbyPeerModel+ObjC.swift */; };
 		7FBACE542B0F005E001D167C /* KYNearbyService+Sending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE462B0F005E001D167C /* KYNearbyService+Sending.swift */; };
-		7FBACE552B0F005E001D167C /* KYNearbyServiceConstants+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE472B0F005E001D167C /* KYNearbyServiceConstants+ObjC.swift */; };
 		7FBACE562B0F005E001D167C /* KYNearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE482B0F005E001D167C /* KYNearbyService.swift */; };
 		7FBACE5A2B0F0103001D167C /* KYNearbyServiceLocalizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBACE592B0F0103001D167C /* KYNearbyServiceLocalizations.swift */; };
 		7FBACE5D2B0F0148001D167C /* KYNearbyServiceLocalizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FBACE5F2B0F0148001D167C /* KYNearbyServiceLocalizations.strings */; };
@@ -82,9 +80,7 @@
 		7FBACE412B0F005E001D167C /* KYNearbyService+Visibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyService+Visibility.swift"; sourceTree = "<group>"; };
 		7FBACE432B0F005E001D167C /* KYNearbyPeerModel+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyPeerModel+Debug.swift"; sourceTree = "<group>"; };
 		7FBACE442B0F005E001D167C /* KYNearbyPeerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNearbyPeerModel.swift; sourceTree = "<group>"; };
-		7FBACE452B0F005E001D167C /* KYNearbyPeerModel+ObjC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyPeerModel+ObjC.swift"; sourceTree = "<group>"; };
 		7FBACE462B0F005E001D167C /* KYNearbyService+Sending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyService+Sending.swift"; sourceTree = "<group>"; };
-		7FBACE472B0F005E001D167C /* KYNearbyServiceConstants+ObjC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYNearbyServiceConstants+ObjC.swift"; sourceTree = "<group>"; };
 		7FBACE482B0F005E001D167C /* KYNearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNearbyService.swift; sourceTree = "<group>"; };
 		7FBACE592B0F0103001D167C /* KYNearbyServiceLocalizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYNearbyServiceLocalizations.swift; sourceTree = "<group>"; };
 		7FBACE5E2B0F0148001D167C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/KYNearbyServiceLocalizations.strings; sourceTree = "<group>"; };
@@ -227,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				7FBACE392B0F005E001D167C /* KYNearbyServiceConstants.swift */,
-				7FBACE472B0F005E001D167C /* KYNearbyServiceConstants+ObjC.swift */,
 				7FBACE642B0F0645001D167C /* KYNearbyServiceConfiguration.swift */,
 				7FBACE482B0F005E001D167C /* KYNearbyService.swift */,
 				7FBACE412B0F005E001D167C /* KYNearbyService+Visibility.swift */,
@@ -257,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				7FBACE442B0F005E001D167C /* KYNearbyPeerModel.swift */,
-				7FBACE452B0F005E001D167C /* KYNearbyPeerModel+ObjC.swift */,
 				7FBACE432B0F005E001D167C /* KYNearbyPeerModel+Debug.swift */,
 			);
 			path = Model;
@@ -434,14 +428,12 @@
 				7FB295722B0F46A400CB4386 /* KYNearbyConnectionView.swift in Sources */,
 				7FBACE4A2B0F005E001D167C /* KYNearbyService+ReceivedFile.swift in Sources */,
 				7FB295752B0F46A400CB4386 /* View+KYNearbyConnectionView.swift in Sources */,
-				7FBACE532B0F005E001D167C /* KYNearbyPeerModel+ObjC.swift in Sources */,
 				7FB295742B0F46A400CB4386 /* Animation+KYNearbyConnectionView.swift in Sources */,
 				7FB295712B0F46A400CB4386 /* KYNearbyConnectionViewModel+Event.swift in Sources */,
 				7FBACE4C2B0F005E001D167C /* KYNearbyService+MCSessionDelegate.swift in Sources */,
 				7F82B48E2B12247F0049D0AE /* KYNearbyService+ErrorAlert.swift in Sources */,
 				7FB295732B0F46A400CB4386 /* KYNearbyConnectionPeerCell.swift in Sources */,
 				7FB295812B0F4D9000CB4386 /* KYNearbyConnectionViewConstants.swift in Sources */,
-				7FBACE552B0F005E001D167C /* KYNearbyServiceConstants+ObjC.swift in Sources */,
 				7FBACE562B0F005E001D167C /* KYNearbyService.swift in Sources */,
 				7FBACE542B0F005E001D167C /* KYNearbyService+Sending.swift in Sources */,
 				7FB2957D2B0F494600CB4386 /* KYNearbyConnectionViewTheme.swift in Sources */,

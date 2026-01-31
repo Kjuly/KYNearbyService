@@ -9,13 +9,12 @@
 import SwiftUI
 import MultipeerConnectivity
 
-@objc
 public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable {
 
   /// Peer ID of the user nearby.
   public let peerID: MCPeerID
   /// Display name for the peer.
-  @objc public let displayName: String
+  public let displayName: String
 
   /// Whether this peer is visible to others (note: invisible peer will also be presented if it's connected).
   var isVisibleToOthers: Bool
@@ -24,14 +23,14 @@ public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable 
   @Published public internal(set) var connectionStatus: KYNearbyPeerConnectionStatus
 
   /// Current process status.
-  @Published @objc public var processStatus: KYNearbyPeerProcessStatus = .none
-  @objc public var processTitle: String?
-  @Published @objc public var processErrorMessage: String?
+  @Published public var processStatus: KYNearbyPeerProcessStatus = .none
+  public var processTitle: String?
+  @Published public var processErrorMessage: String?
 
-  @Published @objc public dynamic var progressCounter: Int = 0
+  @Published public dynamic var progressCounter: Int = 0
   var observation: NSKeyValueObservation?
 
-  @objc public weak var progress: Progress? {
+  public weak var progress: Progress? {
     didSet {
       if self.observation != nil {
         self.observation?.invalidate()
@@ -101,13 +100,11 @@ public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable 
   }
 
   @MainActor
-  @objc
   public func prepareForProcessing() {
     self.processStatus = .pending
   }
 
   @MainActor
-  @objc
   public func startProcessing(forReceiving: Bool) {
     self.processStatus = .processing
 
@@ -128,7 +125,6 @@ public class KYNearbyPeerModel: NSObject, ObservableObject, @unchecked Sendable 
   }
 
   @MainActor
-  @objc
   public func doneProcessing(with errorMessage: String?) {
     self.processStatus = .none
     self.processErrorMessage = errorMessage

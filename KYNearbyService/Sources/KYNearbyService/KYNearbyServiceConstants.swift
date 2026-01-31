@@ -80,7 +80,6 @@ public enum KYNearbyPeerConnectionStatus: Int, Sendable {
 
 // MARK: - Peer Process Status
 
-@objc
 public enum KYNearbyPeerProcessStatus: Int, Sendable {
   case none = 0
   case pending

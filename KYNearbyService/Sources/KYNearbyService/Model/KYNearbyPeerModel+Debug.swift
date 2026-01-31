@@ -22,6 +22,7 @@ extension KYNearbyPeerModel {
     processStatus: KYNearbyPeerProcessStatus = .none,
     processErrorMessage: String? = nil
   ) -> KYNearbyPeerModel {
+
     let peerID = MCPeerID(displayName: name)
     let item = KYNearbyPeerModel(peerID: peerID, isVisibleToOthers: true, connectionStatus: connectionStatus)
 
