@@ -20,12 +20,6 @@ enum KYNearbyConnectionViewDimension {
     static let level_2: CGFloat = 10
   }
 
-  public enum ViewCornerRadius {
-    // static let small: CGFloat = 2
-    static let regular: CGFloat = 5
-    // static let large: CGFloat = 10
-  }
-
   public enum IconButtonSideLength {
     static let regular: CGFloat = 44
     static let small: CGFloat = 32
