@@ -7,8 +7,8 @@ A service for nearby discovery and communication.
 ![macOS][macOS-Badge] ![iOS][iOS-Badge]  
 [![SPM][SPM-Badge]][SPM-Link] [![CocoaPods][CocoaPods-Badge]][CocoaPods-Link] [![Carthage][Carthage-Badge]][Carthage-Link]
 
-[macOS-Badge]: https://img.shields.io/badge/macOS-12.0%2B-blue?labelColor=00367A&color=3081D0
-[iOS-Badge]: https://img.shields.io/badge/iOS-15.5%2B-blue?labelColor=00367A&color=3081D0
+[macOS-Badge]: https://img.shields.io/badge/macOS-12%2B-blue?labelColor=00367A&color=3081D0
+[iOS-Badge]: https://img.shields.io/badge/iOS-16%2B-blue?labelColor=00367A&color=3081D0
 
 [SPM-Badge]: https://img.shields.io/github/v/tag/Kjuly/KYNearbyService?label=SPM&labelColor=2F4858&color=A8DF8E
 [SPM-Link]: https://swiftpackageindex.com/Kjuly/KYNearbyService
