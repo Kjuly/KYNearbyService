@@ -40,7 +40,7 @@ KYNearbyService.setup(with: KYNearbyServiceConfiguration(serviceType: "your-serv
 ```
 
 > [!IMPORTANT]
-> Make sure you've provided [NSBonjourServices](https://developer.apple.com/documentation/bundleresources/information_property_list/nsbonjourservices) in your *.plist file.
+> Make sure you've provided [NSBonjourServices](https://developer.apple.com/documentation/bundleresources/information_property_list/nsbonjourservices) and NSLocalNetworkUsageDescription in your *.plist file.
 > 
 > ```xml
 > <key>NSBonjourServices</key>
@@ -48,6 +48,9 @@ KYNearbyService.setup(with: KYNearbyServiceConfiguration(serviceType: "your-serv
 >   <string>_your-service._tcp</string>
 >   <string>_your-service._udp</string>
 > </array>
+>
+> <key>NSLocalNetworkUsageDescription</key>
+> <string>This allows us to find and connect devices under the same local network, so that you can share files with devices nearby.</string>
 > ```
 
 2. Use the existing `KYNearbyConnectionView` or setup your own one to provide as the connection view. A demo project is available under "[/KYNearbyServiceDemo](KYNearbyServiceDemo)".

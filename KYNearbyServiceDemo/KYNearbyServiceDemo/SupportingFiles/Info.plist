@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This allows us to find and connect devices under the same local network, so that you can share files with devices nearby.</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_nearby-demo._tcp</string>
